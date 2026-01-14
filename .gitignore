@@ -1,0 +1,11 @@
+Proyecto/data/*
+venv/
+__pycache__/
+*.pyc
+.env
+data/
+datasets/
+models/
+*.csv
+*.xlsx
+package-lock.json

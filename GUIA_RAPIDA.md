@@ -72,10 +72,10 @@ python Comparativo_Portfolio_Symphony.py
 ## 📊 ¿QUÉ HACER AHORA? (URGENTE)
 
 ### Hoy (90 minutos):
-- [ ] Generar requirements.txt
-- [ ] Crear README.md  
-- [ ] Agregar try/except
-- [ ] Crear config.yaml
+- [x] Generar requirements.txt
+- [x] Crear README.md  
+- [x] Agregar try/except
+- [x] Crear config.yaml
 
 ### Esta semana:
 - [ ] Agregar logging

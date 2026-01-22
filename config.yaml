@@ -1,0 +1,67 @@
+# Configuración CatalogIA v1.0
+# Archivo de configuración centralizado
+# Fecha: 22 de enero de 2026
+
+# Configuración del modelo IA
+model:
+  name: "Salesforce/blip2-flan-t5-xl"  # Modelo BLIP-2 para catalogación
+  device: "auto"                       # auto, cuda, cpu
+  dtype: "auto"                        # auto, float16, float32
+  trust_remote_code: true              # Permitir código remoto de HF
+
+# Configuración de procesamiento
+processing:
+  batch_size: 1                        # Tamaño de batch (actualmente 1)
+  max_new_tokens: 150                  # Máximo tokens en respuesta
+  temperature: 0.7                     # Temperatura para generación
+  do_sample: true                      # Sampling vs greedy decoding
+  prompt_template: "Question: Describe briefly this photograph for bibliographic cataloging purposes. Mention people, objects, context, and possible relevant topics."
+
+# Rutas de archivos y directorios
+paths:
+  input_images: "data/Fotos/"          # Directorio de imágenes de entrada
+  output_results: "outputs/"           # Directorio de resultados
+  models_cache: "~/.cache/huggingface/hub"  # Cache de modelos
+  logs: "logs/"                        # Directorio de logs
+  temp: "temp/"                        # Archivos temporales
+
+# Archivos de datos
+data:
+  symphony_csv: "bnco/Symphony_30_07_2025.csv"  # Archivo Symphony
+  portfolio_txt: "bnco/Portfolio_22_08_2025.txt"  # Archivo Portfolio
+  output_excel: "Comparativo_Symphony_Portfolio.xlsx"  # Resultado comparación
+
+# Configuración de logging
+logging:
+  level: "INFO"                        # DEBUG, INFO, WARNING, ERROR
+  file: "logs/catalogia.log"           # Archivo de log
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  max_file_size: 10485760              # 10MB
+  backup_count: 5                      # Número de backups
+
+# Configuración de red y seguridad
+network:
+  ssl_verify: false                    # Verificar SSL (deshabilitado para desarrollo)
+  timeout: 300                         # Timeout en segundos para descargas
+  retries: 3                           # Número de reintentos
+  user_agent: "CatalogIA/1.0 (Biblioteca Nacional de Colombia)"
+
+# Configuración de hardware
+hardware:
+  gpu_memory_fraction: 0.9             # Fracción de GPU memory a usar
+  cpu_threads: null                    # Threads CPU (null = auto)
+  allow_growth: true                   # Crecimiento dinámico de GPU memory
+
+# Configuración de experimentos y debugging
+debug:
+  verbose: false                       # Output verbose
+  save_intermediate: false             # Guardar resultados intermedios
+  profile_performance: false           # Profiling de performance
+
+# Metadatos del proyecto
+metadata:
+  version: "1.0"
+  author: "Camilo Andrés López León"
+  institution: "Biblioteca Nacional de Colombia"
+  date_created: "2026-01-22"
+  description: "Sistema de precatalogación asistida por IA"
